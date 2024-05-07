@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef H_unorderedSet
 #define H_unorderedSet
 
@@ -12,22 +12,61 @@ public:
     void insertEnd(const elemType& insertItem);
     void replaceAt(int location, const elemType& repItem);
     unorderedSet(int size = 100);
-    friend unorderedSet<elemType> operator+ (const unorderedSet<elemType>& list, const unorderedSet<elemType>& list2);
+    unorderedSet<elemType> operator+ (const unorderedSet<elemType>& rhs)
+    {
+        unorderedSet<elemType> result = unorderedSet<elemType>(this->maxSize + rhs.maxSize);
+        for (int loc = 0; loc < this->length; loc++)
+        {
+            result.insertEnd(this->list[loc]);
+           
+
+        }
+        for (int loc = 0; loc < rhs.length; loc++)
+        {
+            result.insertEnd(rhs.list[loc]);
+
+
+        }
+        return result;
+    }
+    unorderedSet<elemType> operator- (const unorderedSet<elemType>& rhs)
+    {
+        unorderedSet<elemType> result = unorderedSet<elemType>(this->maxSize + rhs.maxSize);
+        for (int loc = 0; loc < this->length; loc++)
+        {
+            result.insertEnd(this->list[loc]);
+
+
+        }
+        for (int loc = 0; loc < rhs.length; loc++)
+        {
+            result.insertEnd(rhs.list[loc]);
+
+
+        }
+        return result;
+    }
 };
 
+/*
 template <class elemType>
-unorderedSet<elemType> operator+ (const unorderedSet<elemType> &list, const unorderedSet<elemType> &list2)
+unorderedSet<elemType> operator+ (const unorderedSet<elemType>& rhs)
 {
-    for (int loc = 0; loc < list2.length; loc++)
+    unorderedSet<elemType> result = unorderedSet<elemType>(this->maxSize + rhs.maxSize);
+    for (int loc = 0; loc < this->length; loc++)
     {
-        if (list.seqSearch(list2[loc]) = -1)
-        {
-            list.insertEnd(list2[loc]);
-        }
+        result.insertEnd(this->list[loc]);
+
 
     }
-    return list;
-}
+    for (int loc = 0; loc < rhs.length; loc++)
+    {
+        result.insertEnd(rhs.list[loc]);
+
+
+    }
+    return result;
+}*/
 
 /*template <class elemType>
 elemType operator- (const elemType& list)
@@ -62,16 +101,10 @@ template <class elemType>
 void unorderedSet<elemType>::insertAt(int location, const elemType& insertItem)
 {
     int loc = unorderedArrayListType<elemType>::seqSearch(insertItem);
-    cout << "Index = " << loc << endl;
-    if (loc != -1)
+    //cout << "Index = " << loc << endl;
+    if (loc == -1)
     {
-        cout << "Item is in list" << endl;
-
-        //break;
-    }
-    else
-    {
-        cout << "Item is not in list" << endl;
+        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::insertAt(location, insertItem);
     }
 }
@@ -80,16 +113,10 @@ template <class elemType>
 void unorderedSet<elemType>::insertEnd(const elemType& insertItem)
 {
     int loc = unorderedArrayListType<elemType>::seqSearch(insertItem);
-    cout << "Index = " << loc << endl;
-    if (loc != -1)
+    //cout << "Index = " << loc << endl;
+    if (loc == -1)
     {
-        cout << "Item is in list" << endl;
-
-        //break;
-    }
-    else
-    {
-        cout << "Item is not in list" << endl;
+        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::insertEnd(insertItem);
     }
 }
@@ -99,16 +126,10 @@ void unorderedSet<elemType>::replaceAt(int location,
     const elemType& repItem)
 {
     int loc = unorderedArrayListType<elemType>::seqSearch(repItem);
-    cout << "Index = " << loc << endl;
-    if (loc != -1)
+    //cout << "Index = " << loc << endl;
+    if (loc == -1)
     {
-        cout << "Item is in list" << endl;
-
-        //break;
-    }
-    else
-    {
-        cout << "Item is not in list" << endl;
+        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::replaceAt(location, repItem);
     }
 }
@@ -119,6 +140,7 @@ unorderedSet<elemType>::unorderedSet(int size)
 
 {
 }
+
 
 
 
