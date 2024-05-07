@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\testProgNumList.cpp" />
     <ClCompile Include="Set Template Project.cpp" />
   </ItemGroup>
   <ItemGroup>
