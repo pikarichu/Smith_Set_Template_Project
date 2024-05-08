@@ -34,68 +34,16 @@ public:
         unorderedSet<elemType> result = unorderedSet<elemType>(this->maxSize + rhs.maxSize);
         for (int loc = 0; loc < this->length; loc++)
         {
-            result.insertEnd(this->list[loc]);
-
-
-        }
-        for (int loc = 0; loc < rhs.length; loc++)
-        {
-            result.insertEnd(rhs.list[loc]);
+            if (rhs.seqSearch(this->list[loc]) != -1)
+            {
+                result.insertEnd(this->list[loc]);
+            }
 
 
         }
         return result;
     }
 };
-
-/*
-template <class elemType>
-unorderedSet<elemType> operator+ (const unorderedSet<elemType>& rhs)
-{
-    unorderedSet<elemType> result = unorderedSet<elemType>(this->maxSize + rhs.maxSize);
-    for (int loc = 0; loc < this->length; loc++)
-    {
-        result.insertEnd(this->list[loc]);
-
-
-    }
-    for (int loc = 0; loc < rhs.length; loc++)
-    {
-        result.insertEnd(rhs.list[loc]);
-
-
-    }
-    return result;
-}*/
-
-/*template <class elemType>
-elemType operator- (const elemType& list)
-{
-    elemType tempSet(20);
-    for (int loc = 0; loc < list.length; loc++)
-    {
-        if (tempSet.seqSearch(list[loc]) = -1)
-        {
-            tempSet.removeAt(list[loc]);
-        }
-
-    }
-    return tempSet;
-};*/
-
-/*template <class elemType>
-elemType operator- (const elemType& set1, const elemType& set2)
-{
-    for (int loc = 0; loc < unorderedSet<elemType>::set2.length; loc++)
-    {
-        if (set1.seqSearch(set2[loc]) = -1)
-        {
-            set1.removeAt(set2[loc]);
-        }
-
-    }
-    return set1;
-};*/
 
 template <class elemType>
 void unorderedSet<elemType>::insertAt(int location, const elemType& insertItem)

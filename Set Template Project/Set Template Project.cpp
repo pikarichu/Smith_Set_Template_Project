@@ -34,6 +34,8 @@ int main()
     numList.print();
     numList3 = numList2 + numList;
     numList3.print();
+    numList3 = numList - numList2;
+    numList3.print();
     /*cout << "item 3 is in position: " << numList2.seqSearch(3) << endl;
     numList2.insertAt(1, 1);
     numList2.insertAt(3, 15); 
