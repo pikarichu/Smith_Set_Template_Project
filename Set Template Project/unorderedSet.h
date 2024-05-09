@@ -18,14 +18,10 @@ public:
         for (int loc = 0; loc < this->length; loc++)
         {
             result.insertEnd(this->list[loc]);
-           
-
         }
         for (int loc = 0; loc < rhs.length; loc++)
         {
             result.insertEnd(rhs.list[loc]);
-
-
         }
         return result;
     }
@@ -38,8 +34,6 @@ public:
             {
                 result.insertEnd(this->list[loc]);
             }
-
-
         }
         return result;
     }
@@ -52,9 +46,10 @@ void unorderedSet<elemType>::insertAt(int location, const elemType& insertItem)
     //cout << "Index = " << loc << endl;
     if (loc == -1)
     {
-        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::insertAt(location, insertItem);
     }
+    else
+        cout << insertItem << " is already in list" << endl;
 }
 
 template <class elemType>
@@ -64,9 +59,10 @@ void unorderedSet<elemType>::insertEnd(const elemType& insertItem)
     //cout << "Index = " << loc << endl;
     if (loc == -1)
     {
-        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::insertEnd(insertItem);
     }
+    else
+        cout << insertItem << " is already in list" << endl;
 }
 
 template <class elemType>
@@ -77,19 +73,15 @@ void unorderedSet<elemType>::replaceAt(int location,
     //cout << "Index = " << loc << endl;
     if (loc == -1)
     {
-        //cout << "Item is in list" << endl;
         unorderedArrayListType<elemType>::replaceAt(location, repItem);
     }
+    else
+        cout << repItem << " is already in list" << endl;
 }
 
 template <class elemType>
 unorderedSet<elemType>::unorderedSet(int size)
     : unorderedArrayListType<elemType>(size)
-
 {
 }
-
-
-
-
 #endif
